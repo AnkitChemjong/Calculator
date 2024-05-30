@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="Calculator.css" />
+  </head>
+  <body>
+    <section id="sec">
+      <div id="main">
+        <div id="top">
+          <h1>Calculator</h1>
+        </div>
+        <div id="display">
+          <input class="input" id="ip" type="text" />
+        </div>
+        <div id="keys">
+          <div class="divs" id="div1">
+            <button class="button" id="btn1">OFF</button>
+            <button class="button"  id="btn2">AC</button>
+            <button class="button" id="btn3">%</button>
+            <button class="button" id="btn4">+/-</button>
+          </div>
+          <div class="divs"  id="div2">
+            <button class="button" id="btn5">7</button>
+            <button class="button" id="btn6">8</button>
+            <button class="button" id="btn7">9</button>
+            <button class="button" id="btn8">/</button>
+          </div>
+          <div class="divs" id="div3">
+            <button class="button" id="btn9">4</button>
+            <button class="button" id="btn10">5</button>
+            <button class="button" id="btn11">6</button>
+            <button class="button" id="btn12">*</button>
+          </div>
+          <div class="divs" id="div4">
+            <button class="button" id="btn13">1</button>
+            <button class="button" id="btn14">2</button>
+            <button class="button" id="btn15">3</button>
+            <button class="button" id="btn16">-</button>
+          </div>
+          <div class="divs" id="div5">
+            <button class="button" id="btn17">0</button>
+            <button class="button" id="btn18">.</button>
+            <button class="button" id="btn19">=</button>
+            <button class="button" id="btn20">+</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      let a=document.getElementById('ip');
+      let string="";
+      let buttons=document.querySelectorAll('.button');
+      Array.from(buttons).forEach((button)=>{
+        button.addEventListener('click',(e)=>{
+          if(e.target.innerHTML==='='){
+           // string=eval(string);
+            a.value=(eval(a.value));
+          }
+         else if(e.target.innerHTML==="OFF"){
+             window.close();
+         }
+         else if(e.target.innerHTML==='AC'){
+          string='';
+          a.value=string;
+        }
+        else{
+          console.log(e.target);//to check that the button is working properly or not
+          string=string+e.target.innerHTML;
+          a.value=string
+         // document.querySelector('input').value=string;
+        }
+        })
+      })
+    </script>
+  </body>
+</html>
